@@ -1,0 +1,96 @@
+/* {
+    border: red solid 1px;
+}*/
+
+main {
+    box-sizing: border-box;
+    max-width: 95%;
+}
+
+header {
+    text-align: center;
+}
+
+
+input[type='placeholder'][value] {
+    color: gray;
+}
+
+form {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+#settings1 {
+    width: 60%;
+}
+
+#settings2 {
+    width: 30%;
+    align-self: center;
+}
+
+#radio {
+    display: flex;
+    }
+
+.radiobox{
+    border: 1px black solid;
+    padding: 3px;
+    border-radius: 5px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+#settings3 {
+    display: flex;
+    justify-content: space-around;
+}
+
+[type='text']{
+    width: 95%;
+}
+
+
+
+#memeContainer{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.meme {
+
+}
+
+.small {
+    width: 200px;
+}
+
+.medium {
+    width: 400px;
+}
+
+.large {
+    width: 600px;
+}
+
+.upper,.lower {
+    position: relative;
+    z-index: 1;
+    left: 10px;
+}
+/*
+.lower,.upper {
+    position: relative;
+    z-index: 1;
+} */
+
+
+img {
+    position: relative;
+    top: 0px;
+}
+
+/* based on size seletion, need to add a different class to each meme: big little small */

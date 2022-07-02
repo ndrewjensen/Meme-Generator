@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="main.css">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <h1>Give Me Memez Plz</h1>
+    <p>Fill in the blanks to make your meme!</p>
+  </header>
+
+  <main>
+    <form>
+      <img src="" alt="">
+      <div class="settings-bin" id="settings1">
+        <label for="link">Image URL:</label><br>
+        <input type="text" id="link" name="link" value="https://upload.wikimedia.org/wikipedia/en/f/ff/SuccessKid.jpg" placeholder="https://image.url.goes.here"><br><br>
+        <label for="picTop">Upper Text:</label><br>
+        <input type="text" id="picTop" name="picTop" value="upper stuff" placeholder="OK"><br><br>
+        <label for="picBottom">Lower Text:</label><br>
+        <input type="text" id="picBottom" name="picBottom" value="down low stuff" placeholder="You've Got This"><br><br>
+      </div>
+
+      <div class="settings-bin" id="settings2">
+        <label for="size">Meme Size:</label>
+        <span id="radio">
+
+          <div class="radiobox">
+            <label for="Small">Small</label>
+            <input type="radio" id="smallsize" name="size"value="small">
+          </div>
+          <div class="radiobox">
+            <label for="Medium">Med</label>
+            <input type="radio" id="medsize" name="size"value="medium" checked="checked">
+          </div>
+          <div class="radiobox">
+            <label for="Large">Large</label>
+            <input type="radio" id="largesize" name="size" value="large">
+          </div><br>
+        </span>
+        <br>
+        <label for="font-size">Font size:</label>
+        <input type="range" name="font-size" id="font-size" min="8" max="24"><br><br>
+        <label for="color">Font Color:    </label>
+        <input type="color" name="color" id="color"><br><br>
+        <label for="upper-text-location">Upper Text Location</label>
+        <input type="range" name="upper-text-location" id="upper-text-location" min="0%" max="100%" value="40"><br><br>
+        <label for="lower-text-location">Lower Text Location</label>
+        <input type="range" name="Lower-text-location" id="lower-text-location" min="0%" max="100%" value="40"><br><br>
+      </div>
+
+      <div class="settings-bin" id="settings3">
+        <input id="submit" type="submit" value="Generate Meme">
+        <input type="button" value="These are terrible.">
+      </div>
+
+
+    </form>
+
+    <div id="memeContainer">
+
+
+
+
+    </div>
+
+  </main>
+<script src="app.js"></script>
+</body>
+</html>
+
