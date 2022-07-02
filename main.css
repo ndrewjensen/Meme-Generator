@@ -2,9 +2,14 @@
     border: red solid 1px;
 }*/
 
+html {
+    font-family: 'Roboto', sans-serif;
+}
+
 main {
     box-sizing: border-box;
     max-width: 95%;
+    margin-bottom: 20px;
 }
 
 header {
@@ -27,7 +32,7 @@ form {
 }
 
 #settings2 {
-    width: 30%;
+    width: 35%;
     align-self: center;
 }
 
@@ -40,6 +45,10 @@ form {
 #radio {
     display: flex;
     }
+
+#styleradio {
+    display: flex;
+}
 
 .radiobox{
     border: 1px black solid;
@@ -61,13 +70,11 @@ form {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
+    align-content: flex-start;
 }
 
 
-.meme {
-
-
-}
+.meme {}
 
 .small {
     width: 200px;
@@ -84,22 +91,23 @@ form {
 .upper,.lower {
     position: relative;
     z-index: 1;
-    left: 10px;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
+    left: 5px;
 }
 
 img {
     position: relative;
     top: 0px;
+    z-index: 0;
 }
 
 .del {
-    position: absolute;
-    right: 37.5%;
-    top: 45%;
-    opacity: .25;
-    width: 25%;
+    position: relative;
+    right:27px;
+    bottom: 7px;
+    opacity: .4;
+    width: 25px;
+    z-index: -1;
+    /* transition: z-index 500ms; */
 }
 
 footer {

@@ -20,12 +20,17 @@
     <form>
       <img src="" alt="">
       <div class="settings-bin" id="settings1">
+
         <label for="link">Image URL:</label><br>
         <input type="text" id="link" name="link" value="https://upload.wikimedia.org/wikipedia/en/f/ff/SuccessKid.jpg" placeholder="https://image.url.goes.here"><br><br>
+
         <label for="picTop">Upper Text:</label><br>
         <input type="text" id="picTop" name="picTop" value="upper stuff" placeholder="OK"><br><br>
+
         <label for="picBottom">Lower Text:</label><br>
         <input type="text" id="picBottom" name="picBottom" value="down low stuff" placeholder="You've Got This"><br><br>
+
+        <br>
       </div>
 
       <div class="settings-bin" id="settings2">
@@ -47,34 +52,29 @@
         </span>
         <br>
         <label for="font-size">Font size:</label>
-        <input type="range" name="font-size" id="font-size" min="8" max="24" value="20"><br><br>
+        <input type="range" name="font-size" id="font-size" min="8" max="24" value="16"><br><br>
         <label for="color">Font Color:    </label>
         <input type="color" name="color" id="color"><br><br>
         <label for="upper-text-location">Upper Text Location</label>
-        <input type="range" name="upper-text-location" id="upper-text-location" min="0" max="100" value="20"><br><br>
+        <input type="range" name="upper-text-location" id="upper-text-location" min="0" max="75" value="5"><br><br>
         <label for="lower-text-location">Lower Text Location</label>
-        <input type="range" name="lower-text-location" id="lower-text-location" min="0" max="100" value="20"><br><br>
+        <input type="range" name="lower-text-location" id="lower-text-location" min="0" max="72" value="3"><br><br>
       </div>
 
       <div class="settings-bin" id="settings3">
         <input class="button" id="submit" type="submit" value="Generate Meme">
-        <input class="button" type="button" value="These are terrible.">
+        <input id="clearall" class="button" type="button" value="These are terrible.">
       </div>
-
 
     </form>
 
-    <div id="memeContainer">
+    <div id="memeContainer"></div><!-- is filled from js -->
 
-
-
-
-    </div>
-    
-    <footer>
-      <a href="https://www.flaticon.com/free-icons/cross" title="cross icons">Cross icons created by hqrloveq - Flaticon</a>
-    </footer>
   </main>
+
+  <footer>
+    <a href="https://www.flaticon.com/free-icons/cross" title="cross icons">Cross icons created by hqrloveq - Flaticon</a>
+  </footer>
 <script src="app.js"></script>
 </body>
 </html>

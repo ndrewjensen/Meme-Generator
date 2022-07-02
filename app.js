@@ -1,10 +1,5 @@
-const buttons = document.querySelector("[type=button");
-
-buttons.addEventListener('click',function(e) {
-  e.preventDefault();
-}) //take this out after customizing each button
-
 const submit = document.querySelector('#submit');
+const clearall = document.querySelector('#clearall');
 const memeContainer = document.querySelector('#memeContainer');
 
 submit.addEventListener('click',function(e) {
@@ -27,6 +22,8 @@ submit.addEventListener('click',function(e) {
       size = 'large';
     }
 
+
+
   //create upper text element
   const upper = document.createElement('p');
   upper.innerText = picTop;
@@ -37,20 +34,20 @@ submit.addEventListener('click',function(e) {
    const lower = document.createElement('p');
    lower.innerText = picBottom;
    lower.setAttribute('class', 'lower');
-   lower.setAttribute("style","font-size:"+fontsize+"px;color:"+color+";bottom:"+lowerlocation+"%;");
+   lower.setAttribute("style","font-size:"+fontsize+"px;color:"+color+";top:"+lowerlocation+"%;");
 
   //create image element
   const image = document.createElement('img');
   image.setAttribute("class", size);
+  image.classList.add("image")
   image.setAttribute("src",link);
   image.setAttribute("alt","Meme Image from URL");
 
-  // //add delete button image to meme
-  // const del = document.createElement('img');
-  // del.setAttribute("class", 'del');
-  // del.setAttribute('src', 'delete.png');
-  // del.setAttribute('width','30px');
-
+  //add delete button image to meme
+  const del = document.createElement('img');
+  del.setAttribute("class", 'del');
+  del.setAttribute('src', 'delete.png');
+  del.setAttribute('width','10px');
 
   //create meme container
   const newMeme = document.createElement('div');
@@ -58,17 +55,54 @@ submit.addEventListener('click',function(e) {
 
   //newMeme.setAttribute("size",size);
   newMeme.prepend(image);
+  newMeme.prepend(lower);
   newMeme.prepend(upper);
-  newMeme.append(lower);
-  //newMeme.append(del);
-
-
-
+  newMeme.append(del);
   memeContainer.prepend(newMeme);
+
+  //reset the form after submission
+  document.querySelector('input[name="link"]').value = "";
+  document.querySelector('input[name="picTop"').value = "";
+  document.querySelector('input[name="picBottom"').value = "";
+  document.querySelector('input[name="font-size"').value = "16";
+  document.querySelector('input[name="color"').value = '#000000';
+  document.querySelector('input[name="upper-text-location"').value = "5";
+  document.querySelector('input[name="lower-text-location"').value = "3";
+  document.getElementById('medsize').checked = 'checked';
 
 })
 
-// document.addEventListener('mouseover', function(e){
-//   e.AT_TARGET
-//})
-//use classes to define whether text is on pic or above
+memeContainer.addEventListener("mouseover", function(e) {
+
+  if (e.target.classList[1] === 'image') {
+    e.target.parentElement.lastElementChild.setAttribute("style",'z-index: 2;')
+
+    setTimeout(function() {
+      e.target.parentElement.lastElementChild.setAttribute("style",'z-index: -1;')
+    }, 3000);
+  }
+})
+
+memeContainer.addEventListener('click', function(e){
+  if (e.target.classList[0] === 'del') {
+    e.target.parentElement.remove();
+  }
+})
+
+clearall.addEventListener("click", function() {
+
+  //delete all meme divs
+  while (memeContainer.children.length > 0) {
+    memeContainer.firstElementChild.remove();
+  }
+
+  //Reset Form
+  document.querySelector('input[name="link"]').value = "";
+  document.querySelector('input[name="picTop"').value = "";
+  document.querySelector('input[name="picBottom"').value = "";
+  document.querySelector('input[name="font-size"').value = "16";
+  document.querySelector('input[name="color"').value = '#000000';
+  document.querySelector('input[name="upper-text-location"').value = "5";
+  document.querySelector('input[name="lower-text-location"').value = "3";
+  document.getElementById('medsize').checked = 'checked';
+})
