@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
@@ -44,18 +47,18 @@
         </span>
         <br>
         <label for="font-size">Font size:</label>
-        <input type="range" name="font-size" id="font-size" min="8" max="24"><br><br>
+        <input type="range" name="font-size" id="font-size" min="8" max="24" value="20"><br><br>
         <label for="color">Font Color:    </label>
         <input type="color" name="color" id="color"><br><br>
         <label for="upper-text-location">Upper Text Location</label>
-        <input type="range" name="upper-text-location" id="upper-text-location" min="0%" max="100%" value="40"><br><br>
+        <input type="range" name="upper-text-location" id="upper-text-location" min="0" max="100" value="20"><br><br>
         <label for="lower-text-location">Lower Text Location</label>
-        <input type="range" name="Lower-text-location" id="lower-text-location" min="0%" max="100%" value="40"><br><br>
+        <input type="range" name="lower-text-location" id="lower-text-location" min="0" max="100" value="20"><br><br>
       </div>
 
       <div class="settings-bin" id="settings3">
-        <input id="submit" type="submit" value="Generate Meme">
-        <input type="button" value="These are terrible.">
+        <input class="button" id="submit" type="submit" value="Generate Meme">
+        <input class="button" type="button" value="These are terrible.">
       </div>
 
 
@@ -67,7 +70,10 @@
 
 
     </div>
-
+    
+    <footer>
+      <a href="https://www.flaticon.com/free-icons/cross" title="cross icons">Cross icons created by hqrloveq - Flaticon</a>
+    </footer>
   </main>
 <script src="app.js"></script>
 </body>

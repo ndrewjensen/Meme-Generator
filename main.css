@@ -31,6 +31,12 @@ form {
     align-self: center;
 }
 
+#settings3 {
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+}
+
 #radio {
     display: flex;
     }
@@ -43,16 +49,13 @@ form {
     margin-right: 2px;
 }
 
-#settings3 {
-    display: flex;
-    justify-content: space-around;
-}
-
 [type='text']{
     width: 95%;
 }
 
-
+.button {
+    margin: 10px;
+}
 
 #memeContainer{
     display: flex;
@@ -60,7 +63,9 @@ form {
     justify-content: space-around;
 }
 
+
 .meme {
+
 
 }
 
@@ -80,17 +85,28 @@ form {
     position: relative;
     z-index: 1;
     left: 10px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
 }
-/*
-.lower,.upper {
-    position: relative;
-    z-index: 1;
-} */
-
 
 img {
     position: relative;
     top: 0px;
 }
 
-/* based on size seletion, need to add a different class to each meme: big little small */
+.del {
+    position: absolute;
+    right: 37.5%;
+    top: 45%;
+    opacity: .25;
+    width: 25%;
+}
+
+footer {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    background-color: white;
+    z-index: 2;
+
+}
