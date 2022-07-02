@@ -8,27 +8,50 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Memez</title>
 </head>
 <body>
   <header>
-    <h1>Give Me Memez Plz</h1>
-    <p>Fill in the blanks to make your meme!</p>
+
+    <span class="header">
+      <h1>
+
+      <span class="letter">G</span>
+      <span class="letter">i</span>
+      <span class="letter">v</span>
+      <span class="letter">e </span>
+      <span class="letter">M</span>
+      <span class="letter">e </span>
+      <span class="letter">M</span>
+      <span class="letter">e</span>
+      <span class="letter">m</span>
+      <span class="letter">e</span>
+      <span class="letter">z </span>
+      <span class="letter">P</span>
+      <span class="letter">l</span>
+      <span class="letter">z</span>
+     </h1>
+    </span>
   </header>
 
   <main>
+    <p id="instructions">Adjust the settings to make your meme!</p>
     <form>
-      <img src="" alt="">
+
       <div class="settings-bin" id="settings1">
 
-        <label for="link">Image URL:</label><br>
+        <label for="link">Image URL:</label>
         <input type="text" id="link" name="link" value="https://upload.wikimedia.org/wikipedia/en/f/ff/SuccessKid.jpg" placeholder="https://image.url.goes.here"><br><br>
 
-        <label for="picTop">Upper Text:</label><br>
+        <label for="picTop">Upper Text:</label>
         <input type="text" id="picTop" name="picTop" value="upper stuff" placeholder="OK"><br><br>
+        <label for="upper-text-location">Upper Text Location</label>
+        <input type="range" name="upper-text-location" id="upper-text-location" min="0" max="75" value="11"><br><br>
 
-        <label for="picBottom">Lower Text:</label><br>
+        <label for="picBottom">Lower Text:</label>
         <input type="text" id="picBottom" name="picBottom" value="down low stuff" placeholder="You've Got This"><br><br>
+        <label for="lower-text-location">Lower Text Location</label>
+        <input type="range" name="lower-text-location" id="lower-text-location" min="0" max="72" value="8"><br>
 
         <br>
       </div>
@@ -55,10 +78,8 @@
         <input type="range" name="font-size" id="font-size" min="8" max="24" value="16"><br><br>
         <label for="color">Font Color:    </label>
         <input type="color" name="color" id="color"><br><br>
-        <label for="upper-text-location">Upper Text Location</label>
-        <input type="range" name="upper-text-location" id="upper-text-location" min="0" max="75" value="5"><br><br>
-        <label for="lower-text-location">Lower Text Location</label>
-        <input type="range" name="lower-text-location" id="lower-text-location" min="0" max="72" value="3"><br><br>
+
+
       </div>
 
       <div class="settings-bin" id="settings3">
@@ -76,6 +97,7 @@
     <a href="https://www.flaticon.com/free-icons/cross" title="cross icons">Cross icons created by hqrloveq - Flaticon</a>
   </footer>
 <script src="app.js"></script>
+<script src="randomcolors.js"></script>
 </body>
 </html>
 

@@ -2,6 +2,9 @@ const submit = document.querySelector('#submit');
 const clearall = document.querySelector('#clearall');
 const memeContainer = document.querySelector('#memeContainer');
 
+//colorful header from Colt Steele
+
+
 submit.addEventListener('click',function(e) {
   e.preventDefault();
 
@@ -52,33 +55,31 @@ submit.addEventListener('click',function(e) {
   //create meme container
   const newMeme = document.createElement('div');
   newMeme.classList.add('meme');
-
-  //newMeme.setAttribute("size",size);
   newMeme.prepend(image);
+  newMeme.prepend(del);
   newMeme.prepend(lower);
   newMeme.prepend(upper);
-  newMeme.append(del);
   memeContainer.prepend(newMeme);
+  newMeme.classList.add(size)
 
-  //reset the form after submission
-  document.querySelector('input[name="link"]').value = "";
-  document.querySelector('input[name="picTop"').value = "";
-  document.querySelector('input[name="picBottom"').value = "";
-  document.querySelector('input[name="font-size"').value = "16";
-  document.querySelector('input[name="color"').value = '#000000';
-  document.querySelector('input[name="upper-text-location"').value = "5";
-  document.querySelector('input[name="lower-text-location"').value = "3";
-  document.getElementById('medsize').checked = 'checked';
+  //reset the form after submission; the page functionality is better if this is all commented out
+  // document.querySelector('input[name="link"]').value = "";
+  // document.querySelector('input[name="picTop"').value = "";
+  // document.querySelector('input[name="picBottom"').value = "";
+  // document.querySelector('input[name="font-size"').value = "16";
+  // document.querySelector('input[name="color"').value = '#000000';
+  // document.querySelector('input[name="upper-text-location"').value = "11";
+  // document.querySelector('input[name="lower-text-location"').value = "8";
+  // document.getElementById('medsize').checked = 'checked';
 
 })
 
 memeContainer.addEventListener("mouseover", function(e) {
-
   if (e.target.classList[1] === 'image') {
-    e.target.parentElement.lastElementChild.setAttribute("style",'z-index: 2;')
+    e.target.parentElement.children[2].setAttribute("style",'opacity: .5;')
 
     setTimeout(function() {
-      e.target.parentElement.lastElementChild.setAttribute("style",'z-index: -1;')
+      e.target.parentElement.children[2].setAttribute("style",'opacity: 0;')
     }, 3000);
   }
 })
@@ -102,7 +103,7 @@ clearall.addEventListener("click", function() {
   document.querySelector('input[name="picBottom"').value = "";
   document.querySelector('input[name="font-size"').value = "16";
   document.querySelector('input[name="color"').value = '#000000';
-  document.querySelector('input[name="upper-text-location"').value = "5";
-  document.querySelector('input[name="lower-text-location"').value = "3";
+  document.querySelector('input[name="upper-text-location"').value = "11";
+  document.querySelector('input[name="lower-text-location"').value = "8";
   document.getElementById('medsize').checked = 'checked';
 })
