@@ -9,9 +9,7 @@ function randomRGB() {
 }
 
 const h1 = document.querySelector('h1');
-
-
-
+const submitbutton = document.querySelector('#submit');
 const letters = document.querySelectorAll('.letter');
 
 
@@ -20,3 +18,7 @@ setInterval(function() {
     letter.style.color = randomRGB();
   }
 }, 500);
+
+setInterval(function() {
+    submitbutton.setAttribute('style','color:'+randomRGB()+';');
+}, 2000);

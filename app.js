@@ -1,5 +1,3 @@
-//Need to make the form buttons better looking
-
 //set some html elements to variable
 const submit = document.querySelector('#submit');
 const clearall = document.querySelector('#clearall');
@@ -106,6 +104,8 @@ document.getElementById("lower-text-location").addEventListener('click', functio
 
 submit.addEventListener('click',function(e) {
   e.preventDefault();
+  console.log(link);
+  if( link === '') throw 'exit'; //don't save a meme that doesn't have a functioning link.
 
   //create upper text element
   const upper = document.createElement('p');
@@ -186,8 +186,8 @@ clearall.addEventListener("click", function() {
   document.querySelector('input[name="picBottom"').value = "";
   document.querySelector('input[name="font-size"').value = "16";
   document.querySelector('input[name="color"').value = '#000000';
-  document.querySelector('input[name="upper-text-location"').value = "11";
-  document.querySelector('input[name="lower-text-location"').value = "8";
+  document.querySelector('input[name="upper-text-location"').value = "0";
+  document.querySelector('input[name="lower-text-location"').value = "0";
   document.getElementById('medsize').checked = 'checked';
 
   //clear out initial meme
@@ -195,6 +195,17 @@ clearall.addEventListener("click", function() {
   wiplowertext.innerText = '';
   wipimage.removeAttribute('src');
   wipimage.removeAttribute('alt');
+
+  //reset variables in this js file
+linkinput = document.querySelector('#link')
+link = '';
+picTop = '';
+picBottom = '';
+fontsize ='16';
+color =  '#000000';
+upperlocation = '0';
+lowerlocation = '0';
+size = "medium";
 
 })
 

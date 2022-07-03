@@ -85,11 +85,14 @@ form {
 }
 
 .button:hover {
-    /* background-color: white;
-    color: black; */
     border-radius: 50px;
     transition: border-radius 500ms;
 }
+
+#submit{
+    transition: color 2000ms;
+}
+
 #clearall:hover {
     background-color: red;
     color: black;
