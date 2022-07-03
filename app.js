@@ -1,5 +1,6 @@
-//need to adjust the start fresh button to clear out the hard-coded meme
+//Need to make the form buttons better looking
 
+//set some html elements to variable
 const submit = document.querySelector('#submit');
 const clearall = document.querySelector('#clearall');
 const wipmeme = document.querySelector('#wipmeme');
@@ -8,7 +9,7 @@ const wipuppertext = document.querySelector('#wipuppertext');
 const wiplowertext = document.querySelector('#wiplowertext');
 const wipimage = document.querySelector('#wipimage');
 
-
+//get initial values for all of the form fields
 let linkinput = document.querySelector('#link')
 let link = document.querySelector('input[name="link"]').value;
 let picTop = document.querySelector('input[name="picTop"').value;
@@ -19,32 +20,26 @@ let upperlocation = document.querySelector('input[name="upper-text-location"').v
 let lowerlocation = document.querySelector('input[name="lower-text-location"').value;
 let size = "medium";
 
-
-
-  wipuppertext.setAttribute("style","font-size:"+fontsize+"px;color:"+color+";top:"+upperlocation+"%;")
-
-  wiplowertext.setAttribute("style","font-size:"+fontsize+"px;color:"+color+";top:"+lowerlocation+"%;");
+//apply initial form field values to upper and lower meme text
+wipuppertext.setAttribute("style","font-size:"+fontsize+"px;color:"+color+";top:"+upperlocation+"%;");
+wiplowertext.setAttribute("style","font-size:"+fontsize+"px;color:"+color+";top:"+lowerlocation+"%;");
 
 
 
 
-//Event listener for clicks anywhere in the from. It occurns to me after the fact that someone who tabs instead of uses the mouse might have issues, and that with the way this shaped out I don't need this big if else, I should just use a separate event listener for each form input.
+//Event listener for clicks anywhere in the form. It occurs to me after the fact that someone who tabs instead of uses the mouse might have issues, and that with the way this shaped out I don't need this big if else, I should just use a separate event listener for each form input.
 document.querySelector('#form').addEventListener('click', function(e){
-  console.log("key listener is firing")
   if (e.target === document.querySelector('input[name="picTop"')) {
     e.target.addEventListener('keyup', function(){
       wipuppertext.innerText = e.target.value;
-      console.log("top text is firing" + picTop);
 
     })
   } else if (e.target === document.querySelector('input[name="picBottom"')) {
     e.target.addEventListener('keyup', function(){
       wiplowertext.innerText = e.target.value;
-      console.log("bottom text is firing" + picBottom)
     })
   } else if (e.target === document.querySelector('input[name="font-size"')) {
       fontsize = e.target.value;
-      console.log("fontsize is firing" + fontsize);
   } else if (e.target === document.querySelector('input[name="color"')) {
       document.addEventListener('click', function () {
         color = e.target.value;
@@ -53,7 +48,6 @@ document.querySelector('#form').addEventListener('click', function(e){
         wiplowertext.setAttribute("style","font-size:"+fontsize+"px;color:"+color+";top:"+lowerlocation+"%;");
       })
   } else if (e.target.getAttribute('name') === 'size') {
-    console.log('size is firing');
     if (document.getElementById('smallsize').checked) {
       size = 'small';
       wipmeme.classList.remove('medium');
@@ -71,6 +65,7 @@ document.querySelector('#form').addEventListener('click', function(e){
       wipimage.classList.remove('small');
       wipimage.classList.remove('large');
       wipimage.classList.add('medium');
+
     } else if (document.getElementById('largesize').checked) {
       size = 'large';
       wipmeme.classList.remove('small');
@@ -81,16 +76,13 @@ document.querySelector('#form').addEventListener('click', function(e){
       wipimage.classList.add('large');
     }
   } else if (e.target === document.querySelector('input[name="upper-text-location"')) {
-    wipupperlocation = e.target.value;
-    console.log("upper text location is firing" + upperlocation);
+    upperlocation = e.target.value;
 
   } else if (e.target === document.querySelector('input[name="lower-text-location"')) {
-    wiplowerlowerlocation = e.target.value;
-    console.log("lower text location is firing" + lowerlocation);
+    lowerlocation = e.target.value;
 
   } else if (e.target === document.querySelector('#link')) {
     e.target.addEventListener('keyup', function(e){
-      console.log("paste listener is firing");
       link = document.querySelector('input[name="link"]').value;
       wipimage.setAttribute('src',link)
     })
@@ -103,21 +95,13 @@ document.querySelector('#form').addEventListener('click', function(e){
 
 document.getElementById("upper-text-location").addEventListener('click', function (e) {
   upperlocation = e.target.value;
+  wipuppertext.setAttribute("style","font-size:"+fontsize+"px;color:"+color+";top:"+upperlocation+"%;");
 })
 
 document.getElementById("lower-text-location").addEventListener('click', function (e) {
   lowerlocation = e.target.value;
+  wiplowertext.setAttribute("style","font-size:"+fontsize+"px;color:"+color+";top:"+lowerlocation+"%;");
 })
-
-
-
-
-
-
-
-
-
-
 
 
 submit.addEventListener('click',function(e) {
@@ -170,6 +154,7 @@ submit.addEventListener('click',function(e) {
 
 })
 
+//Listener to show delete button on saved memes
 memeContainer.addEventListener("mouseover", function(e) {
   if (e.target.classList[1] === 'image') {
     e.target.parentElement.children[3].setAttribute("style",'opacity: .5;')
@@ -180,12 +165,14 @@ memeContainer.addEventListener("mouseover", function(e) {
   }
 })
 
+//Listener to delete saved memes
 memeContainer.addEventListener('click', function(e){
   if (e.target.classList[0] === 'del') {
     e.target.parentElement.remove();
   }
 })
 
+//Listener on Clear All button AKA "start fresh"
 clearall.addEventListener("click", function() {
 
   //delete all meme divs
@@ -202,5 +189,12 @@ clearall.addEventListener("click", function() {
   document.querySelector('input[name="upper-text-location"').value = "11";
   document.querySelector('input[name="lower-text-location"').value = "8";
   document.getElementById('medsize').checked = 'checked';
+
+  //clear out initial meme
+  wipuppertext.innerText = '';
+  wiplowertext.innerText = '';
+  wipimage.removeAttribute('src');
+  wipimage.removeAttribute('alt');
+
 })
 
