@@ -1,3 +1,5 @@
+//need to adjust the start fresh button to clear out the hard-coded meme
+
 const submit = document.querySelector('#submit');
 const clearall = document.querySelector('#clearall');
 const wipmeme = document.querySelector('#wipmeme');
@@ -15,32 +17,18 @@ let fontsize = document.querySelector('input[name="font-size"').value;
 let color = document.querySelector('input[name="color"').value;
 let upperlocation = document.querySelector('input[name="upper-text-location"').value;
 let lowerlocation = document.querySelector('input[name="lower-text-location"').value;
-let size = "";
-  if (document.getElementById('smallsize').checked) {
-    size = 'small';
-  } else if (document.getElementById('medsize').checked) {
-    size= 'medium';
-  } else if (document.getElementById('largesize').checked) {
-    size = 'large';
-  }
+let size = "medium";
+
 
 
   wipuppertext.setAttribute("style","font-size:"+fontsize+"px;color:"+color+";top:"+upperlocation+"%;")
 
   wiplowertext.setAttribute("style","font-size:"+fontsize+"px;color:"+color+";top:"+lowerlocation+"%;");
 
-  linkinput.addEventListener('paste', function(e){
-    console.log("paste listener is firing");
-    console.log()
-    //create wipimage
-    wipimage.classList.add(size);
-    wipimage.setAttribute('src',link)
 
-    //create wip text
-    wipmeme.classList.add(size);
-  })
 
-//this event listener that updates the upper text is working, but maybe I can make it into a single event listener on the whole form that uses cases to update all of the values.
+
+//Event listener for clicks anywhere in the from. It occurns to me after the fact that someone who tabs instead of uses the mouse might have issues, and that with the way this shaped out I don't need this big if else, I should just use a separate event listener for each form input.
 document.querySelector('#form').addEventListener('click', function(e){
   console.log("key listener is firing")
   if (e.target === document.querySelector('input[name="picTop"')) {
@@ -75,9 +63,6 @@ document.querySelector('#form').addEventListener('click', function(e){
       wipimage.classList.remove('large');
       wipimage.classList.add('small');
 
-      //THIS IS NOT RESOLVED
-
-
     } else if (document.getElementById('medsize').checked) {
       size= 'medium';
       wipmeme.classList.remove('small');
@@ -96,17 +81,23 @@ document.querySelector('#form').addEventListener('click', function(e){
       wipimage.classList.add('large');
     }
   } else if (e.target === document.querySelector('input[name="upper-text-location"')) {
-    upperlocation = e.target.value;
+    wipupperlocation = e.target.value;
     console.log("upper text location is firing" + upperlocation);
 
   } else if (e.target === document.querySelector('input[name="lower-text-location"')) {
-    lower = e.target.value;
+    wiplowerlowerlocation = e.target.value;
     console.log("lower text location is firing" + lowerlocation);
 
+  } else if (e.target === document.querySelector('#link')) {
+    e.target.addEventListener('keyup', function(e){
+      console.log("paste listener is firing");
+      link = document.querySelector('input[name="link"]').value;
+      wipimage.setAttribute('src',link)
+    })
   }
+
     wipuppertext.setAttribute("style","font-size:"+fontsize+"px;color:"+color+";top:"+upperlocation+"%;");
     wiplowertext.setAttribute("style","font-size:"+fontsize+"px;color:"+color+";top:"+lowerlocation+"%;");
-
 })
 
 
@@ -131,23 +122,6 @@ document.getElementById("lower-text-location").addEventListener('click', functio
 
 submit.addEventListener('click',function(e) {
   e.preventDefault();
-
-  let linkinput = document.querySelector('#link')
-  let link = document.querySelector('input[name="link"]').value;
-  let picTop = document.querySelector('input[name="picTop"').value;
-  let picBottom = document.querySelector('input[name="picBottom"').value;
-  let fontsize = document.querySelector('input[name="font-size"').value;
-  let color = document.querySelector('input[name="color"').value;
-  let upperlocation = document.querySelector('input[name="upper-text-location"').value;
-  let lowerlocation = document.querySelector('input[name="lower-text-location"').value;
-  let size = "";
-    if (document.getElementById('smallsize').checked) {
-      size = 'small';
-    } else if (document.getElementById('medsize').checked) {
-      size= 'medium';
-    } else if (document.getElementById('largesize').checked) {
-      size = 'large';
-    }
 
   //create upper text element
   const upper = document.createElement('p');
