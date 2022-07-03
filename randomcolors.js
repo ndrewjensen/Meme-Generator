@@ -1,4 +1,6 @@
 
+//colorful header from Colt Steele Video
+
 function randomRGB() {
   const red = Math.floor(Math.random() * 256);
   const green = Math.floor(Math.random() * 256);

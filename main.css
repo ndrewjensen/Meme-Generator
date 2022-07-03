@@ -103,12 +103,11 @@ form {
     margin: 10px;
 }
 
-#memeContainer{
+.memeContainer{
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
     align-content: flex-start;
-
     border-radius: 25px;
     margin: 25px;
 
@@ -149,7 +148,7 @@ img {
     position: relative;
     float: right;
     right:3px;
-    top: 30px;
+    bottom: 32px;
     opacity: 0;
     width: 25px;
     transition: opacity 500ms;

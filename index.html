@@ -36,7 +36,7 @@
 
   <main>
     <p id="instructions">Adjust the settings to make your meme!</p>
-    <form>
+    <form id="form">
 
       <div class="settings-bin" id="settings1">
 
@@ -44,35 +44,35 @@
         <input type="text" id="link" name="link" value="https://upload.wikimedia.org/wikipedia/en/f/ff/SuccessKid.jpg" placeholder="https://image.url.goes.here"><br><br>
 
         <label for="picTop">Upper Text:</label>
-        <input type="text" id="picTop" name="picTop" value="me a month ago: I wish I could make a webpage." placeholder="OK"><br><br>
+        <input type="text" id="picTop" name="picTop" value="me a month ago: I wish I could make an interactive webpage." placeholder="OK"><br><br>
         <label for="upper-text-location">Upper Text Location</label>
-        <input type="range" name="upper-text-location" id="upper-text-location" min="0" max="75" value="11"><br><br>
+        <input type="range" name="upper-text-location" id="upper-text-location" min="0" max="75" value="0"><br><br>
 
         <label for="picBottom">Lower Text:</label>
         <input type="text" id="picBottom" name="picBottom" value="me today:" placeholder="You've Got This"><br><br>
         <label for="lower-text-location">Lower Text Location</label>
-        <input type="range" name="lower-text-location" id="lower-text-location" min="0" max="72" value="8"><br>
+        <input type="range" name="lower-text-location" id="lower-text-location" min="0" max="72" value="0"><br>
 
         <br>
       </div>
 
       <div class="settings-bin" id="settings2">
         <label for="size">Meme Size:</label>
-        <span id="radio">
+        <div id="radio">
 
           <div class="radiobox">
-            <label for="Small">Small</label>
-            <input type="radio" id="smallsize" name="size"value="small">
+            <label for="small">Small</label>
+            <input type="radio" id="smallsize" name="size" value="small">
           </div>
           <div class="radiobox">
-            <label for="Medium">Med</label>
-            <input type="radio" id="medsize" name="size"value="medium" checked="checked">
+            <label for="medium">Med</label>
+            <input type="radio" id="medsize" name="size" value="medium" checked="checked">
           </div>
           <div class="radiobox">
-            <label for="Large">Large</label>
+            <label for="large">Large</label>
             <input type="radio" id="largesize" name="size" value="large">
           </div><br>
-        </span>
+        </div>
         <br>
         <label for="font-size">Font size:</label>
         <input type="range" name="font-size" id="font-size" min="8" max="24" value="16"><br><br>
@@ -83,13 +83,21 @@
       </div>
 
       <div class="settings-bin" id="settings3">
-        <input class="button" id="submit" type="submit" value="Generate Meme">
-        <input id="clearall" class="button" type="button" value="These are terrible.">
+        <input class="button" id="submit" type="submit" value="Save Meme">
+        <input id="clearall" class="button" type="button" value="Start Fresh">
       </div>
 
     </form>
 
-    <div id="memeContainer"></div><!-- is filled from js -->
+    <div id="wipcontainer" class="memeContainer">
+      <div id="wipmeme" class="meme medium">
+        <p class="upper" id="wipuppertext">me a month ago: I wish I could make an interactive webpage.</p>
+        <p class="lower" id="wiplowertext">me today:</p>
+        <img id="wipimage" class="image medium" src="https://upload.wikimedia.org/wikipedia/en/f/ff/SuccessKid.jpg" alt="Success Baby">
+      </div>
+    </div>
+
+    <div id="memeContainer" class="memeContainer"></div><!-- is filled from js -->
 
   </main>
 
